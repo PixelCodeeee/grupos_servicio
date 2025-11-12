@@ -16,7 +16,7 @@ public class GrupoController {
     
     private final GrupoService grupoService;
     
-    // HU08.1 - Listar grupos
+    // Listar grupos
     @GetMapping
     public ResponseEntity<List<GrupoDto>> listarTodosLosGrupos() {
         List<GrupoDto> grupos = grupoService.listarTodosLosGrupos();
@@ -47,14 +47,14 @@ public class GrupoController {
         return ResponseEntity.ok(grupos);
     }
     
-    // HU08.2 - Agregar nuevo grupo
+    // Agregar nuevo grupo
     @PostMapping
     public ResponseEntity<GrupoDto> agregarGrupo(@RequestBody GrupoDto grupoDto) {
         GrupoDto nuevoGrupo = grupoService.agregarGrupo(grupoDto);
         return ResponseEntity.status(HttpStatus.CREATED).body(nuevoGrupo);
     }
     
-    // HU08.3 - Editar grupo existente
+    // Editar grupo existente
     @PutMapping("/{id}")
     public ResponseEntity<GrupoDto> editarGrupo(
             @PathVariable Integer id, 
@@ -63,7 +63,7 @@ public class GrupoController {
         return ResponseEntity.ok(grupoActualizado);
     }
     
-    // HU08.4 - Dar de baja lógica a un grupo
+    // Dar de baja lógica a un grupo
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> darDeBajaGrupo(@PathVariable Integer id) {
         grupoService.darDeBajaGrupo(id);
